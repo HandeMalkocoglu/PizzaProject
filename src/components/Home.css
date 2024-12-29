@@ -1,0 +1,32 @@
+.home-page {
+    background-image: url('../../images/iteration-1-images/home-banner.png');
+    color: white;
+    text-align: center;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.home-page img {
+    margin-top: 80px;
+    width: 200px;
+}
+
+.home-page p{
+    margin-top: 40px;
+    font-family: 'Roboto Condensed', serif;
+    font-size: 50px; /*düzenlenecek*/
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.home-page button{
+    margin-top: 30px;
+    background-color: #FDC913;
+    border-radius: 20px;
+    height: 40px;
+    width: 150px;
+    border: none;
+
+}

@@ -1,0 +1,204 @@
+.OrderPizza header{
+  background-color: #CE2829;
+  background-position:30%;
+  font-family: "Barlow", serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  border: #C20608 1px;
+}
+
+.order-header-buttons{
+    color: #fff;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    padding-left: 30px;
+    gap: 5px;
+}
+
+.order-header-buttons button {
+  all: unset;
+  cursor: pointer;
+}
+
+.order-header-buttons button:last-child {
+  font-weight: 500;
+}
+
+header img {
+  background-color: #CE2829;
+  width: 360px;
+  align-self: center;
+}
+
+section {
+  width: 532px;
+  height: 35vw;
+  left: 694px;
+  font-family: "Roboto Condensed", serif;
+  font-family: "Barlow", serif;
+  color: black;
+  text-align: left;
+}
+
+.pizza-info h4 {
+  font-size: 22px;
+  font-weight: 550;
+}
+
+.pizza-info { /*Buradaki dikeydeki boşluk fazla*/
+  display: flex;
+  flex-direction: column;
+  padding: 0% 5%;
+  text-align: left;
+}
+
+.pizza-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  text-align: left;
+}
+
+.rateNreview {
+  color: #5F5F5F;
+  line-height: 25px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+.form-order{
+  width: 532px;
+  height: 35vw;
+  left: 694px;
+  padding-left: 28px;
+  text-align: left;
+
+}
+
+.pizza-sizes{
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  gap: 140px;
+
+}
+
+.dough-size{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 10px;
+}
+
+.extras{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.extras-elements{ /*Şuan burada 4 satır var, 5 satır olmalı*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  width: 20vw;
+
+}
+
+.customer-note {
+  display: flex;
+  flex-direction: column;
+}
+
+.customer-note input{
+  all: unset;
+  border-radius: 5px;
+  border: 1px solid #5F5F5F;
+}
+
+.customer-note input:hover {
+  border: 2px solid #5F5F5F;
+}
+
+.customer-note input:focus {
+  border: 2px solid #333;
+}
+
+.customer-note textarea{ /*GENİŞLİĞİ PROBLEMLİ*/
+  all: unset;
+  border-radius: 5px;
+  border: 1px solid #5F5F5F;
+}
+
+.customer-note textarea:hover {
+  border: 2px solid #5F5F5F;
+}
+
+.customer-note textarea:focus {
+  border: 2px solid #333;
+}
+
+.order-control {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 80px;
+}
+
+.pizza-count {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.pizza-count p {
+  border: 1px solid #5f5f5f3f;
+  height: 48px;
+  width: 41px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pizza-count button {
+  background-color: #FDC913;
+  border-radius: none;
+  height: 50px;
+  width: 40px;
+  cursor: pointer;
+}
+
+
+.order-price{
+  border: groove 1px #5F5F5F;
+  width: 300px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.order-price button{
+  background-color: #FDC913;
+  border-radius: 2px;
+  
+}
+
+
+
+
+
