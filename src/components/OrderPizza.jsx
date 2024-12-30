@@ -108,14 +108,18 @@ export default function OrderPizza({ onBack }) {
           </div>
           <p>
             Front Dev olarak hala position:absolute kullanıyorsan bu çok acı
-            pizza tam sana göre.
+            pizza tam sana göre. Pizza, domates, peynir ve genellike çeşitli
+            diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun
+            ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak,
+            düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli
+            lezzetli bir yemektir.. Küçük bir pizzaya bazen pizzetta denir.
           </p>
         </div>
 
         <form className="form-order" onSubmit={handleSubmit}>
           <div className="pizza-sizes">
             <div className="dough-size">
-            Boyut Seç:
+            <strong>Boyut Seç *</strong>
               {['Küçük', 'Orta', 'Büyük'].map((size) => (
                 <label key={size}>
                   <input
@@ -131,7 +135,10 @@ export default function OrderPizza({ onBack }) {
               {errors.size && <p style={{ color: "red" }}>{errors.size}</p>}
             </div>
             <div className="dough-thickness">
-              <label>Hamur Seç:
+            <strong>Hamur Seç *</strong>
+            <br/>
+            <br/>
+              <label>
                 <select
                   name="hamur"
                   value={formData.hamur}
@@ -149,7 +156,7 @@ export default function OrderPizza({ onBack }) {
 
           <div className="extras">
             <br/>
-            <legend>Ek Malzemeler:</legend>
+            <legend><strong>Ek Malzemeler</strong></legend>
             <p>En fazla 10 malzeme seçebilirsiniz. 5₺</p>
             <div className="extras-elements">
             {toppingsOptions.map((topping) => (
@@ -171,9 +178,8 @@ export default function OrderPizza({ onBack }) {
           </div>
 
           <div className="customer-note">
+          <strong>Adınız Soyadınız</strong>
             <label>
-            Adınız Soyadınız:
-            <br/>
               <input
                 type="text"
                 name="name"
@@ -182,9 +188,8 @@ export default function OrderPizza({ onBack }) {
               />
               {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
             </label>
+            <strong>Sipariş Notu</strong>
             <label>
-              Sipariş Notu:
-              <br/>
               <textarea
                 name="notes"
                 value={formData.notes}
@@ -221,8 +226,8 @@ export default function OrderPizza({ onBack }) {
             </div>
             <div className="order-price">
               <h4>Sipariş Toplamı</h4>
-              <p>Seçimler: {totalToppingPrice}₺</p>
-              <p>Toplam: {totalPrice}₺</p>
+              <p>Seçimler {totalToppingPrice}₺</p>
+              <p>Toplam {totalPrice}₺</p>
               <button type="submit" disabled={isSubmitting}>
               {isSubmitting ? "Gönderiliyor..." : "SİPARİŞ VER"}
               </button>

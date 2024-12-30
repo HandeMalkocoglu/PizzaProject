@@ -1,4 +1,4 @@
-.OrderPizza header{
+header{
   background-color: #CE2829;
   background-position:30%;
   font-family: "Barlow", serif;
@@ -7,6 +7,7 @@
   justify-content: center;
   align-items: flex-start;
   width: 100%;
+  height: 160px;
   border: #C20608 1px;
 }
 
@@ -20,6 +21,9 @@
     justify-content: space-between;
     padding-left: 30px;
     gap: 5px;
+    top: 120px;
+    left: 32vw;
+    font-weight: 100;
 }
 
 .order-header-buttons button {
@@ -38,25 +42,35 @@ header img {
 }
 
 section {
-  width: 532px;
-  height: 35vw;
-  left: 694px;
+  padding: 0px 32vw;
   font-family: "Roboto Condensed", serif;
   font-family: "Barlow", serif;
   color: black;
   text-align: left;
 }
 
+.pizza-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+  gap: 30px;
+  margin: 50px auto;
+  font-family: "Barlow", serif;
+  padding: 0% 5%;
+  text-align: left;
+}
+
 .pizza-info h4 {
   font-size: 22px;
   font-weight: 550;
+  letter-spacing: 0.01em;
 }
 
-.pizza-info { /*Buradaki dikeydeki boşluk fazla*/
-  display: flex;
-  flex-direction: column;
-  padding: 0% 5%;
-  text-align: left;
+.pizza-info p:last-child {
+  color: #5F5F5F;
+  line-height: 25px;
+  font-size: 14px;
 }
 
 .pizza-details {
@@ -65,15 +79,16 @@ section {
   justify-content: space-between;
   align-content: center;
   text-align: left;
+  font-weight: bold;
 }
 
 .rateNreview {
-  color: #5F5F5F;
-  line-height: 25px;
-  font-size: 14px;
   display: flex;
   flex-direction: row;
-  text-align: center;
+  align-items: center;
+  gap: 3vw;
+  color: #5F5F5F;
+  font-weight: lighter;
 }
 
 .form-order{
@@ -97,28 +112,35 @@ section {
   display: flex;
   flex-direction: column;
   text-align: left;
-  gap: 10px;
+  gap: 20px;
+  
 }
+
 
 .extras{
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 30px;
 }
 
 .extras-elements{ /*Şuan burada 4 satır var, 5 satır olmalı*/
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 10px;
-  width: 20vw;
+  width: 40vw;
+  color: #333;
+  position: relative;
+  bottom: 10px;
 
 }
 
 .customer-note {
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 
 .customer-note input{
@@ -139,6 +161,9 @@ section {
   all: unset;
   border-radius: 5px;
   border: 1px solid #5F5F5F;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .customer-note textarea:hover {
@@ -155,6 +180,7 @@ section {
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 80px;
+  margin-top: 30px;
 }
 
 .pizza-count {
@@ -176,26 +202,70 @@ section {
 
 .pizza-count button {
   background-color: #FDC913;
-  border-radius: none;
-  height: 50px;
-  width: 40px;
-  cursor: pointer;
+    border: none;
+    height: 50px;
+    width: 40px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
+.pizza-count button:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.pizza-count button:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
 
 .order-price{
-  border: groove 1px #5F5F5F;
-  width: 300px;
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  gap: 10px;
+  border: 1px solid #5f5f5f3f;
+  width: 200px;
+  height: 110px;
+  padding: 50px 50px;
+  border-radius: 10px;
 
+}
+
+.order-price h4 {
+  color: #333;
+}
+
+.order-price p{
+  color: #5F5F5F;
 }
 
 .order-price button{
+  position: relative;
+  width: 200px;
+  height: 60px;
   background-color: #FDC913;
-  border-radius: 2px;
-  
+  border-radius: 5px;
+  border: none;
+  color: #333;
+  font-size: 20px;
+  font-weight: 100;
+  cursor: pointer;
+  padding: 5 5;
+}
+
+.order-price button:hover,
+.pizza-count button:hover {
+    transform: scale(1.003);
+    background-color: #fdca13ee;
+    cursor: pointer;
+    box-shadow: 0.4px 0.4px #5F5F5F;
+}
+
+.order-price button:disabled {
+    background-color: #5f5f5f8a;
+    cursor: not-allowed;
+    transform: scale(1.00);
 }
 
 
