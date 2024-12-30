@@ -1,21 +1,34 @@
 import React, { useState } from "react";
-import reactLogo from './assets/react.svg'
-import workintech from '/workintech.svg'
-import './App.css'
-import Home from './components/Home.jsx'
-import OrderPizza from './components/OrderPizza.jsx'
+import './App.css';
+import Home from './components/Home.jsx';
+import OrderPizza from './components/OrderPizza.jsx';
+import Success from './components/Success.jsx';
 
 function App() {
   const [orderDetails, setOrderDetails] = useState(null);
+  const [success, setSuccess] = useState(false);
+
 return (
-  <div className={orderDetails ?"order-pizza-page":"home-page"}>
-   {!orderDetails ? (
+  <div data-cy="app">
+    
+  {!orderDetails && !success &&  (
         <Home onButtonClick={() => setOrderDetails(true)} />
-      ) : (
-        <OrderPizza onBack={() => setOrderDetails(false)} />
+      )}
+      {!orderDetails && !success && (
+        <OrderPizza onBack={() => setOrderDetails(false)}
+        onSuccess={() => {
+          setOrderDetails(false);
+          setSuccess(true);
+        }} />
+      )}
+      {success && (
+        <Success onBack={() => {
+          setOrderDetails(false);
+          setSuccess(false);
+        }} />
       )}
   </div>
-)
+);
 }
 
-export default App
+export default App;

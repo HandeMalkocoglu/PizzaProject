@@ -3,7 +3,7 @@ import axios from "axios";
 import "./OrderPizza.css";
 import "../../images/iteration-1-images/logo.svg";
 
-export default function OrderPizza({ onBack }) {
+export default function OrderPizza({ onBack, onSuccess }) {
   const [formData, setFormData] = useState({
     name: "",
     size: "orta",
@@ -32,7 +32,6 @@ export default function OrderPizza({ onBack }) {
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const pizzaPrice = 85.5;
   const toppingPrice = 5;
   const totalToppingPrice = formData.toppings.length * toppingPrice;
