@@ -114,7 +114,7 @@ export default function OrderPizza({ onBack }) {
             </div>
           </div>
           <p>
-            Front Dev olarak hala position:absolute kullanıyorsan bu çok acı
+            Front Dev olarak hala position: absolute kullanıyorsan bu çok acı
             pizza tam sana göre. Pizza, domates, peynir ve genellike çeşitli
             diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun
             ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak,

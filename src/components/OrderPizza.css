@@ -268,6 +268,100 @@ section {
     transform: scale(1.00);
 }
 
+@media (max-width: 768px) {
+  .pizza-info {
+    padding: 0% 10%;
+  }
+
+  section{
+    padding-left: 45px;
+  }
+
+  .pizza-info h4 {
+    font-size: 18px;
+    min-width: 240px;
+    display: block;
+
+  }
+
+  .pizza-sizes {
+    gap: 10px;
+  }
+
+  .pizza-details {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    gap: 130px;
+    height: 20px;
+  }
+
+  .pizza-info :last-child {
+    text-align: left;
+    font-size: 16px;
+    line-height: 28px;
+    width: 240px;
+  }
+
+  .pizza-sizes {
+    gap: 50px;
+  }
+
+  .extras-elements {
+    gap: 5px;
+    justify-content: space-between;
+    width: 50%;
+  }
+
+  .order-price {
+    width: 100%;
+    padding: 20px 20px;
+  }
+
+  .order-price button {
+    width: 100%;
+  }
+
+  .order-control {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .pizza-count {
+    gap: 10px;
+  }
+
+  .customer-note {
+    gap: 10px;
+  }
+
+  .customer-note textarea {
+    width: 40%;
+  }
+
+  .order-control {
+    flex-direction: row;
+    max-width: 200px;
+    gap: 5px;
+  }
+
+  .pizza-count button {
+    max-width: 40%;
+  }
+
+  .order-price{
+    padding: 30px 20px;
+  }
+
+  header img {
+    width: 200px;
+  }
+
+  .order-price button {
+    font-size: 16px;
+  }
+}
 
 
 
