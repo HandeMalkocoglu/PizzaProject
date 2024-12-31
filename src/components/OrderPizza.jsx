@@ -3,7 +3,7 @@ import axios from "axios";
 import "./OrderPizza.css";
 import Success from "./Success.jsx";
 
-export default function OrderPizza({ onBack }) {
+export default function OrderPizza({ onBack, onSuccess }) {
   const [formData, setFormData] = useState({
     name: "",
     size: "orta",
@@ -15,7 +15,6 @@ export default function OrderPizza({ onBack }) {
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false); // Success durumunu takip eden state
 
   const pizzaPrice = 85.5;
   const toppingPrice = 5;
@@ -77,9 +76,7 @@ export default function OrderPizza({ onBack }) {
         ...formData,
         totalPrice,
       });
-      
-      // Success sayfasına geçiş yap
-      setIsSuccess(true);
+      onSuccess();
     } catch (error) {
       console.error("Sipariş gönderilemedi:", error);
     } finally {
@@ -87,33 +84,28 @@ export default function OrderPizza({ onBack }) {
     }
   };
 
-  if (isSuccess) {
-    // Başarı durumunda Success bileşenini render et
-    return <Success />;
-  }
-
   return (
     <>
-      <header>
-        <img src="../../images/iteration-1-images/logo.svg" alt="" />
-        <div className="order-header-buttons">
-          <button onClick={onBack}>Anasayfa</button>
+      <header data-cy="order-header">
+        <img src="../../images/iteration-1-images/logo.svg" alt="Logo" data-cy="order-logo" />
+        <div className="order-header-buttons" data-cy="order-header-buttons">
+          <button onClick={onBack} data-cy="order-back-button">Anasayfa</button>
           <p>-</p>
-          <button>Sipariş Oluştur</button>
+          <button data-cy="order-create-button">Sipariş Oluştur</button>
         </div>
       </header>
       <br />
-      <section>
-        <div className="pizza-info">
-          <h4>Position Absolute Acı Pizza</h4>
-          <div className="pizza-details">
-            <p>{pizzaPrice}₺</p>
-            <div className="rateNreview">
-              <p>4.9</p>
-              <p>(200)</p>
+      <section data-cy="order-section">
+        <div className="pizza-info" data-cy="pizza-info">
+          <h4 data-cy="pizza-name">Position Absolute Acı Pizza</h4>
+          <div className="pizza-details" data-cy="pizza-details">
+            <p data-cy="pizza-price">{pizzaPrice}₺</p>
+            <div className="rateNreview" data-cy="rateNreview">
+              <p data-cy="pizza-rating">4.9</p>
+              <p data-cy="pizza-reviews">(200)</p>
             </div>
           </div>
-          <p>
+          <p data-cy="pizza-description">
             Front Dev olarak hala position: absolute kullanıyorsan bu çok acı
             pizza tam sana göre. Pizza, domates, peynir ve genellike çeşitli
             diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun
@@ -123,9 +115,9 @@ export default function OrderPizza({ onBack }) {
           </p>
         </div>
 
-        <form className="form-order" onSubmit={handleSubmit}>
-          <div className="pizza-sizes">
-            <div className="dough-size">
+        <form className="form-order" onSubmit={handleSubmit} data-cy="order-form">
+          <div className="pizza-sizes" data-cy="pizza-sizes">
+            <div className="dough-size" data-cy="dough-size">
               <strong>Boyut Seç *</strong>
               {["Küçük", "Orta", "Büyük"].map((size) => (
                 <label key={size}>
@@ -135,13 +127,14 @@ export default function OrderPizza({ onBack }) {
                     value={size}
                     checked={formData.size === size}
                     onChange={handleChange}
+                    data-cy={`size-${size}`}
                   />
                   {size}
                 </label>
               ))}
-              {errors.size && <p style={{ color: "red" }}>{errors.size}</p>}
+              {errors.size && <p style={{ color: "red" }} data-cy="size-error">{errors.size}</p>}
             </div>
-            <div className="dough-thickness">
+            <div className="dough-thickness" data-cy="dough-thickness">
               <strong>Hamur Seç *</strong>
               <br />
               <br />
@@ -151,6 +144,7 @@ export default function OrderPizza({ onBack }) {
                   value={formData.hamur}
                   onChange={handleChange}
                   required
+                  data-cy="dough-select"
                 >
                   <option value="">Hamur Kalınlığı</option>
                   <option value="İnce Kenar">İnce Kenar</option>
@@ -161,13 +155,13 @@ export default function OrderPizza({ onBack }) {
             </div>
           </div>
 
-          <div className="extras">
+          <div className="extras" data-cy="extras">
             <br />
             <legend>
               <strong>Ek Malzemeler</strong>
             </legend>
             <p>En fazla 10 malzeme seçebilirsiniz. 5₺</p>
-            <div className="extras-elements">
+            <div className="extras-elements" data-cy="extras-elements">
               {toppingsOptions.map((topping) => (
                 <label key={topping}>
                   <input
@@ -176,17 +170,18 @@ export default function OrderPizza({ onBack }) {
                     value={topping}
                     checked={formData.toppings.includes(topping)}
                     onChange={handleChange}
+                    data-cy={`topping-${topping}`}
                   />
                   {topping}
                 </label>
               ))}
               {errors.toppings && (
-                <p style={{ color: "red" }}>{errors.toppings}</p>
+                <p style={{ color: "red" }} data-cy="toppings-error">{errors.toppings}</p>
               )}
             </div>
           </div>
 
-          <div className="customer-note">
+          <div className="customer-note" data-cy="customer-note">
             <strong>Adınız Soyadınız</strong>
             <label>
               <input
@@ -194,8 +189,9 @@ export default function OrderPizza({ onBack }) {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
+                data-cy="customer-name"
               />
-              {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
+              {errors.name && <p style={{ color: "red" }} data-cy="name-error">{errors.name}</p>}
             </label>
             <strong>Sipariş Notu</strong>
             <label>
@@ -203,12 +199,13 @@ export default function OrderPizza({ onBack }) {
                 name="notes"
                 value={formData.notes}
                 onChange={handleChange}
+                data-cy="customer-notes"
               />
             </label>
           </div>
 
-          <div className="order-control">
-            <div className="pizza-count">
+          <div className="order-control" data-cy="order-control">
+            <div className="pizza-count" data-cy="pizza-count">
               <button
                 type="button"
                 onClick={() =>
@@ -217,10 +214,11 @@ export default function OrderPizza({ onBack }) {
                     pizzaCount: Math.max(1, prev.pizzaCount - 1),
                   }))
                 }
+                data-cy="decrease-pizza-count"
               >
                 -
               </button>
-              <p>{formData.pizzaCount}</p>
+              <p data-cy="pizza-count-value">{formData.pizzaCount}</p>
               <button
                 type="button"
                 onClick={() =>
@@ -229,18 +227,25 @@ export default function OrderPizza({ onBack }) {
                     pizzaCount: prev.pizzaCount + 1,
                   }))
                 }
+                data-cy="increase-pizza-count"
               >
                 +
               </button>
             </div>
-            <div className="order-price">
-              <h4>Sipariş Toplamı</h4>
-              <p>Seçimler {totalToppingPrice}₺</p>
-              <p>Toplam {totalPrice}₺</p>
-              <button type="submit" disabled={isSubmitting}>
-                {isSubmitting ? "Gönderiliyor..." : "SİPARİŞ VER"}
-              </button>
+            <div className="order-price" data-cy="order-price">
+              <div className="order-details" data-cy="order-details">
+                <h4>Sipariş Toplamı</h4>
+                <div className="extra-price" data-cy="extra-price">
+                  <p>Seçimler:</p> <p>{totalToppingPrice}₺</p>
+                </div>
+                <div className="total-price" data-cy="total-price">
+                  <p>Toplam:</p> <p>{totalPrice}₺</p>
+                </div>
+              </div>
             </div>
+            <button type="submit" disabled={isSubmitting} data-cy="submit-order">
+              {isSubmitting ? "Gönderiliyor..." : "Sipariş Ver"}
+            </button>
           </div>
         </form>
       </section>

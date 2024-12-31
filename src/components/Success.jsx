@@ -6,11 +6,14 @@ function Success({ onBack }) {
   return (
     <div className='success' data-cy="success">
       <div className='logo'>
-        <img src="../../images/iteration-1-images/logo.svg" alt="Logo" />
+        <img src="../../images/iteration-1-images/logo.svg" alt="Logo" data-cy="success-logo" />
       </div>
       <div className='success-message'>
         <p data-cy="success-congratulations">TEBRİKLER!</p>
         <p data-cy="success-order-received">SİPARİŞİNİZ ALINDI!</p>
+      </div>
+      <div className="success-button">
+        <button onClick={onBack} data-cy="back-to-home">Anasayfaya Dön</button>
       </div>
     </div>
   );
