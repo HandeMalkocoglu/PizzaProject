@@ -257,7 +257,7 @@ section {
 .order-price button:hover,
 .pizza-count button:hover {
     transform: scale(1.003);
-    background-color: #fdca13ee;
+    background-color: #FDC913;
     cursor: pointer;
     box-shadow: 0.4px 0.4px #5F5F5F;
 }
@@ -360,6 +360,7 @@ section {
 
   .order-price button {
     font-size: 16px;
+    background: #FDC913;
   }
 }
 

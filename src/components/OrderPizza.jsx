@@ -242,10 +242,10 @@ export default function OrderPizza({ onBack, onSuccess }) {
                   <p>Toplam:</p> <p>{totalPrice}₺</p>
                 </div>
               </div>
-            </div>
             <button type="submit" disabled={isSubmitting} data-cy="submit-order">
               {isSubmitting ? "Gönderiliyor..." : "Sipariş Ver"}
             </button>
+            </div>
           </div>
         </form>
       </section>

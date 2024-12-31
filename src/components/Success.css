@@ -48,6 +48,7 @@
     .success {
         gap: 10vh;
     }
+    
     .success-message p {
         font-size: 50px;
         text-align: center;
