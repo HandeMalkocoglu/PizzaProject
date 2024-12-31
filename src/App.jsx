@@ -8,27 +8,30 @@ function App() {
   const [orderDetails, setOrderDetails] = useState(null);
   const [success, setSuccess] = useState(false);
 
-return (
-  <div data-cy="app">
-    
-  {!orderDetails && !success &&  (
+  return (
+    <div data-cy="app">
+      {!orderDetails && !success && (
         <Home onButtonClick={() => setOrderDetails(true)} />
       )}
-      {!orderDetails && !success && (
-        <OrderPizza onBack={() => setOrderDetails(false)}
-        onSuccess={() => {
-          setOrderDetails(false);
-          setSuccess(true);
-        }} />
+      {orderDetails && !success && (
+        <OrderPizza
+          onBack={() => setOrderDetails(false)}
+          onSuccess={() => {
+            setOrderDetails(false);
+            setSuccess(true);
+          }}
+        />
       )}
       {success && (
-        <Success onBack={() => {
-          setOrderDetails(false);
-          setSuccess(false);
-        }} />
+        <Success
+          onBack={() => {
+            setOrderDetails(false);
+            setSuccess(false);
+          }}
+        />
       )}
-  </div>
-);
+    </div>
+  );
 }
 
 export default App;

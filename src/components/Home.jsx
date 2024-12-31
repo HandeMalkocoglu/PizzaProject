@@ -9,7 +9,7 @@ return (
         <p>KOD ACIKTIRIR <br/>
             PİZZA, DOYURUR
         </p>
-        <button onClick={onButtonClick} className="button" >ACIKTIM</button>
+        <button data-cy="home-cutton" onClick={onButtonClick} className="button" >ACIKTIM</button>
     </div>
 )
 }

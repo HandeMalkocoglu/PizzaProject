@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./OrderPizza.css";
-import "../../images/iteration-1-images/logo.svg";
+import Success from "./Success.jsx";
 
-export default function OrderPizza({ onBack, onSuccess }) {
+export default function OrderPizza({ onBack }) {
   const [formData, setFormData] = useState({
     name: "",
     size: "orta",
@@ -12,6 +12,16 @@ export default function OrderPizza({ onBack, onSuccess }) {
     hamur: "normal",
     pizzaCount: 1,
   });
+
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false); // Success durumunu takip eden state
+
+  const pizzaPrice = 85.5;
+  const toppingPrice = 5;
+  const totalToppingPrice = formData.toppings.length * toppingPrice;
+  const totalPizzaPrice = pizzaPrice * formData.pizzaCount;
+  const totalPrice = totalPizzaPrice + totalToppingPrice;
 
   const toppingsOptions = [
     "Pepperoni",
@@ -29,14 +39,6 @@ export default function OrderPizza({ onBack, onSuccess }) {
     "Ananas",
     "Kabak",
   ];
-
-  const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const pizzaPrice = 85.5;
-  const toppingPrice = 5;
-  const totalToppingPrice = formData.toppings.length * toppingPrice;
-  const totalPizzaPrice = pizzaPrice * formData.pizzaCount;
-  const totalPrice = totalPizzaPrice + totalToppingPrice;
 
   const validateForm = () => {
     const newErrors = {};
@@ -75,8 +77,9 @@ export default function OrderPizza({ onBack, onSuccess }) {
         ...formData,
         totalPrice,
       });
-      console.log("Sipariş Yanıtı:", response.data);
-      alert("Siparişiniz başarıyla alındı!");
+      
+      // Success sayfasına geçiş yap
+      setIsSuccess(true);
     } catch (error) {
       console.error("Sipariş gönderilemedi:", error);
     } finally {
@@ -84,17 +87,22 @@ export default function OrderPizza({ onBack, onSuccess }) {
     }
   };
 
+  if (isSuccess) {
+    // Başarı durumunda Success bileşenini render et
+    return <Success />;
+  }
+
   return (
     <>
       <header>
-      <img src="../../images/iteration-1-images/logo.svg" alt="" />
+        <img src="../../images/iteration-1-images/logo.svg" alt="" />
         <div className="order-header-buttons">
           <button onClick={onBack}>Anasayfa</button>
           <p>-</p>
           <button>Sipariş Oluştur</button>
         </div>
       </header>
-      <br/>
+      <br />
       <section>
         <div className="pizza-info">
           <h4>Position Absolute Acı Pizza</h4>
@@ -118,8 +126,8 @@ export default function OrderPizza({ onBack, onSuccess }) {
         <form className="form-order" onSubmit={handleSubmit}>
           <div className="pizza-sizes">
             <div className="dough-size">
-            <strong>Boyut Seç *</strong>
-              {['Küçük', 'Orta', 'Büyük'].map((size) => (
+              <strong>Boyut Seç *</strong>
+              {["Küçük", "Orta", "Büyük"].map((size) => (
                 <label key={size}>
                   <input
                     type="radio"
@@ -134,9 +142,9 @@ export default function OrderPizza({ onBack, onSuccess }) {
               {errors.size && <p style={{ color: "red" }}>{errors.size}</p>}
             </div>
             <div className="dough-thickness">
-            <strong>Hamur Seç *</strong>
-            <br/>
-            <br/>
+              <strong>Hamur Seç *</strong>
+              <br />
+              <br />
               <label>
                 <select
                   name="hamur"
@@ -154,30 +162,32 @@ export default function OrderPizza({ onBack, onSuccess }) {
           </div>
 
           <div className="extras">
-            <br/>
-            <legend><strong>Ek Malzemeler</strong></legend>
+            <br />
+            <legend>
+              <strong>Ek Malzemeler</strong>
+            </legend>
             <p>En fazla 10 malzeme seçebilirsiniz. 5₺</p>
             <div className="extras-elements">
-            {toppingsOptions.map((topping) => (
-              <label key={topping}>
-                <input
-                  type="checkbox"
-                  name="toppings"
-                  value={topping}
-                  checked={formData.toppings.includes(topping)}
-                  onChange={handleChange}
-                />
-                {topping}
-              </label>
-            ))}
-            {errors.toppings && (
-              <p style={{ color: "red" }}>{errors.toppings}</p>
-            )}
+              {toppingsOptions.map((topping) => (
+                <label key={topping}>
+                  <input
+                    type="checkbox"
+                    name="toppings"
+                    value={topping}
+                    checked={formData.toppings.includes(topping)}
+                    onChange={handleChange}
+                  />
+                  {topping}
+                </label>
+              ))}
+              {errors.toppings && (
+                <p style={{ color: "red" }}>{errors.toppings}</p>
+              )}
             </div>
           </div>
 
           <div className="customer-note">
-          <strong>Adınız Soyadınız</strong>
+            <strong>Adınız Soyadınız</strong>
             <label>
               <input
                 type="text"
@@ -228,7 +238,7 @@ export default function OrderPizza({ onBack, onSuccess }) {
               <p>Seçimler {totalToppingPrice}₺</p>
               <p>Toplam {totalPrice}₺</p>
               <button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? "Gönderiliyor..." : "SİPARİŞ VER"}
+                {isSubmitting ? "Gönderiliyor..." : "SİPARİŞ VER"}
               </button>
             </div>
           </div>

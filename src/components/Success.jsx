@@ -6,7 +6,7 @@ function Success({onBack}) {
   return (
     <div className='success' data-cy="success">
         <div className='logo'>
-            <img src="../../images/iteration--images/logo.svg"/>
+            <img src="../../images/iteration-1-images/logo.svg"/>
         </div>
         <div className='success-message'>
             <p data-cy="success-congratulations">TEBRİKLER!</p>
