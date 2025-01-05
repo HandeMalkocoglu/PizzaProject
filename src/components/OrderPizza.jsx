@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./OrderPizza.css";
-import Success from "./Success.jsx";
 
-export default function OrderPizza({ onBack, onSuccess }) {
+export default function OrderPizza({ onSuccess }) {
   const [formData, setFormData] = useState({
     name: "",
     size: "orta",
@@ -72,13 +71,21 @@ export default function OrderPizza({ onBack, onSuccess }) {
     setIsSubmitting(true);
 
     try {
-      const response = await axios.post("https://reqres.in/api/pizza", {
+      await axios.post("https://reqres.in/api/pizza", {
         ...formData,
         totalPrice,
       });
-      onSuccess();
+      onSuccess({
+        ...formData,
+        totalToppingPrice,
+        totalPrice,
+      }); // formData'yı onSuccess fonksiyonuna geçir
     } catch (error) {
       console.error("Sipariş gönderilemedi:", error);
+      setErrors((prev) => ({
+        ...prev,
+        submit: "Sipariş gönderilemedi, lütfen tekrar deneyin.",
+      }));
     } finally {
       setIsSubmitting(false);
     }
@@ -89,7 +96,7 @@ export default function OrderPizza({ onBack, onSuccess }) {
       <header data-cy="order-header">
         <img src="../../images/iteration-1-images/logo.svg" alt="Logo" data-cy="order-logo" />
         <div className="order-header-buttons" data-cy="order-header-buttons">
-          <button onClick={onBack} data-cy="order-back-button">Anasayfa</button>
+          <button onClick={() => window.history.back()} data-cy="order-back-button">Anasayfa</button>
           <p>-</p>
           <button data-cy="order-create-button">Sipariş Oluştur</button>
         </div>
@@ -242,9 +249,9 @@ export default function OrderPizza({ onBack, onSuccess }) {
                   <p>Toplam:</p> <p>{totalPrice}₺</p>
                 </div>
               </div>
-            <button type="submit" disabled={isSubmitting} data-cy="submit-order">
-              {isSubmitting ? "Gönderiliyor..." : "Sipariş Ver"}
-            </button>
+              <button type="submit" disabled={isSubmitting} data-cy="submit-order">
+                {isSubmitting ? "Gönderiliyor..." : "Sipariş Ver"}
+              </button>
             </div>
           </div>
         </form>

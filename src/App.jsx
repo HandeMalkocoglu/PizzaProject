@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Switch, useHistory } from "react-router-dom";
 import './App.css';
 import Home from './components/Home.jsx';
 import OrderPizza from './components/OrderPizza.jsx';
@@ -6,30 +7,31 @@ import Success from './components/Success.jsx';
 
 function App() {
   const [orderDetails, setOrderDetails] = useState(null);
-  const [success, setSuccess] = useState(false);
+
+  return (
+    <Router>
+      <AppContent handleSuccess={(details, history) => {
+        setOrderDetails(details);
+        history.push("/success");
+      }} orderDetails={orderDetails} />
+    </Router>
+  );
+}
+
+function AppContent({ handleSuccess, orderDetails }) {
+  const history = useHistory();
 
   return (
     <div data-cy="app">
-      {!orderDetails && !success && (
-        <Home onButtonClick={() => setOrderDetails(true)} />
-      )}
-      {orderDetails && !success && (
-        <OrderPizza
-          onBack={() => setOrderDetails(false)}
-          onSuccess={() => {
-            setOrderDetails(false);
-            setSuccess(true);
-          }}
-        />
-      )}
-      {success && (
-        <Success
-          onBack={() => {
-            setOrderDetails(false);
-            setSuccess(false);
-          }}
-        />
-      )}
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/order">
+          <OrderPizza onSuccess={(details) => handleSuccess(details, history)} />
+        </Route>
+        <Route path="/success">
+          <Success orderDetails={orderDetails} onBack={() => history.push("/")} />
+        </Route>
+      </Switch>
     </div>
   );
 }

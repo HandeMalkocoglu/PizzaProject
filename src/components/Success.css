@@ -7,7 +7,6 @@
     width: 100%;
     height: 100vh;
     font-family: "Barlow", serif;
-    gap: 24vh
 }
 
 .success-message {
@@ -15,26 +14,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 20px;
 }
 
 .success-button button {
-    background: #FDC913;
-    font-size: 17px;
-    line-height: 1.5;
-    font-weight: 700;
-    font-size: 12px;
-    width: 140px;
-    letter-spacing: .012em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    border-style: solid;
-    border-width: 1px;
-    min-width: 28px;
-    padding: 11px 21px;
-    cursor: pointer;
-    text-align: center;
-    border-radius: 900px;
+    margin-top: 40px;
+    background-color: #FDC913;
+    border-radius: 20px;
+    height: 40px;
+    width: 150px;
     border: none;
-    color: #000;
+    color: white;
 }
 
 .success-message p {
@@ -44,14 +34,79 @@
     letter-spacing: -.072em;
 }
 
+.succes-order-received p {
+    color: #fff;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 30px;
+    font-weight: 200;
+    letter-spacing: -.072em;
+}
+
+.success-message p:first-child {
+    font-size: 30px;
+    font-family: Satisfy;
+    color: #FDC913;
+}
+
+hr {
+    width: 40%;
+    color: white;
+    margin-top:30px;
+}
+.success-details{
+    margin-top: 20px;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+.success-details h4{
+    font-family: "Barlow", serif;
+}
+
+.pizza-details{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: flex-start;
+    padding-left: 20px;
+    margin-top: 40px;
+    font-weight: 200;
+    gap: 20px;
+    max-width: 200px;
+}
+
+.order-details{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 40px;
+    font-weight: 200;
+    gap: 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 15%;
+}
+
+.succes-footer{
+    background: black;
+}
+
+
 @media (max-width: 768px) {
     .success {
         gap: 10vh;
     }
+
+
     
     .success-message p {
         font-size: 50px;
         text-align: center;
         padding: 0px 20px;
     }
+
+    
+
 }
