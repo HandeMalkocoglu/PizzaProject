@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./OrderPizza.css";
+import icon1 from "../../images/iteration-2-images/footer/icons/icon-1.png";
+import icon2 from "../../images/iteration-2-images/footer/icons/icon-2.png";
+import icon3 from "../../images/iteration-2-images/footer/icons/icon-3.png";
+import li0 from "../../images/iteration-2-images/footer/insta/li-0.png";
+import li1 from "../../images/iteration-2-images/footer/insta/li-1.png";
+import li2 from "../../images/iteration-2-images/footer/insta/li-2.png";
+import li3 from "../../images/iteration-2-images/footer/insta/li-3.png";
+import li4 from "../../images/iteration-2-images/footer/insta/li-4.png";
+import li5 from "../../images/iteration-2-images/footer/insta/li-5.png";
 
 export default function OrderPizza({ onSuccess }) {
   const [formData, setFormData] = useState({
@@ -15,9 +24,15 @@ export default function OrderPizza({ onSuccess }) {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const pizzaPrice = 85.5;
+  const pizzaPrices = {
+    küçük: 50,
+    orta: 85.5,
+    büyük: 120,
+  };
+
   const toppingPrice = 5;
   const totalToppingPrice = formData.toppings.length * toppingPrice;
+  const pizzaPrice = pizzaPrices[formData.size.toLowerCase()] || 85.5;
   const totalPizzaPrice = pizzaPrice * formData.pizzaCount;
   const totalPrice = totalPizzaPrice + totalToppingPrice;
 
@@ -101,13 +116,13 @@ export default function OrderPizza({ onSuccess }) {
           <button data-cy="order-create-button">Sipariş Oluştur</button>
         </div>
       </header>
-      <br />
-      <section data-cy="order-section">
+      <div className="sections">
+      <section data-cy="order-section" className="order-section">
         <div className="pizza-info" data-cy="pizza-info">
           <h4 data-cy="pizza-name">Position Absolute Acı Pizza</h4>
-          <div className="pizza-details" data-cy="pizza-details">
-            <p data-cy="pizza-price">{pizzaPrice}₺</p>
-            <div className="rateNreview" data-cy="rateNreview">
+          <div className="pizza-detail" data-cy="pizza-detail">
+            <p data-cy="pizza-price"><strong>{pizzaPrice}₺</strong></p>
+            <div className="pizza-rate" data-cy="pizza-rate">
               <p data-cy="pizza-rating">4.9</p>
               <p data-cy="pizza-reviews">(200)</p>
             </div>
@@ -126,6 +141,9 @@ export default function OrderPizza({ onSuccess }) {
           <div className="pizza-sizes" data-cy="pizza-sizes">
             <div className="dough-size" data-cy="dough-size">
               <strong>Boyut Seç *</strong>
+              <br/>
+              <br/>
+              <div className="dough-sizes">
               {["Küçük", "Orta", "Büyük"].map((size) => (
                 <label key={size}>
                   <input
@@ -140,6 +158,7 @@ export default function OrderPizza({ onSuccess }) {
                 </label>
               ))}
               {errors.size && <p style={{ color: "red" }} data-cy="size-error">{errors.size}</p>}
+              </div>
             </div>
             <div className="dough-thickness" data-cy="dough-thickness">
               <strong>Hamur Seç *</strong>
@@ -256,6 +275,46 @@ export default function OrderPizza({ onSuccess }) {
           </div>
         </form>
       </section>
+      </div>
+      <footer data-cy="success-footer" className='success-footer'>
+              <div className="footer-1">
+                <h4>Teknolojik Yemekler</h4>
+                <div className="footer-adress">
+                  <img src={icon1} alt="Icon 1" />
+                  <p>341 Londonderry Road, Istanbul Türkiye</p>
+                </div>
+                <div className="footer-phone">
+                  <img src={icon2} alt="Icon 2" />
+                  <p>aciktim@teknolojikyemekler.com</p>
+                </div>
+                <div className="footer-mail">
+                  <img src={icon3} alt="Icon 3" />
+                  <p>+90 216 123 45 67</p>
+                </div>
+              </div>
+              <div className="footer-2">
+                <h4>Hot Menu</h4>
+                <ul>
+                  <li>Terminal Pizza</li>
+                  <li>5 Kişilik Hackathlon Pizza</li>
+                  <li>useEffect Tavuklu Pizza</li>
+                  <li>Beyaz Console Frosty</li>
+                  <li>Testler Geçti Mutlu Burger</li>
+                  <li>Position Absolute Acı Burger</li>
+                </ul>
+              </div>
+              <div className="footer-3">
+                <h4>İnstagram</h4>
+                <div className="footer-insta">
+                  <img src={li0} alt="li 0" />
+                  <img src={li1} alt="li 1" />
+                  <img src={li2} alt="li 2" />
+                  <img src={li3} alt="li 3" />
+                  <img src={li4} alt="li 4" />
+                  <img src={li5} alt="li 5" />
+                </div>
+              </div>
+            </footer>
     </>
   );
 }

@@ -267,6 +267,7 @@ footer {
     display: flex;
     align-items: center;
     margin-top: 10px;
+    font-size: 15px;
 }
 
 .footer-adress img, .footer-phone img, .footer-mail img {

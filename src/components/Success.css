@@ -129,18 +129,21 @@ hr {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    font-size: 15px;
 }
 
 .footer-phone {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    font-size: 15px;
 }
 
 .footer-mail {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    font-size: 15px;
 }
 
 .footer-2 {
