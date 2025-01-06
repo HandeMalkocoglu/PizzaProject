@@ -1,19 +1,31 @@
-.home-page {
+/* Header kısmı */
+.home-header {
     background-image: url('../../images/iteration-1-images/home-banner.png');
     color: white;
     text-align: center;
-    height: 100vh;
-    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    font-family: "Barlow", serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 400px;
 }
 
-.home-page img {
+header .home-page img {
     margin-top: 80px;
     width: 200px;
 }
 
-.home-page p{
+.home-message {
+    font-size: 10px;
+    font-family: 'Satisfy', cursive;
+    color: #FDC913;
+}
+
+.home-page p {
     margin-top: 40px;
     font-family: 'Roboto Condensed', serif;
     font-size: 50px; /*düzenlenecek*/
@@ -21,13 +33,114 @@
     line-height: 1.2;
 }
 
-.home-page button{
-    margin-top: 30px;
-    background-color: #FDC913;
-    border-radius: 20px;
-    height: 40px;
-    width: 150px;
-    border: none;
+/* Home section kısmı */
+.home-section {
+    padding: 20px;
+}
+
+.header-nav-button nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+}
+
+.header-nav-elements {
+    text-align: center;
+}
+
+.header-nav-elements img {
+    width: 50px;
+    height: 50px;
+}
+
+.home-section-content {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.content-card1, .content-card2, .content-card3 {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 30%;
+}
+
+.home-section-text {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.section-nav-button nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+}
+
+.section-nav-elements {
+    text-align: center;
+}
+
+.section-nav-elements img {
+    width: 50px;
+    height: 50px;
+}
+
+.section-pizza {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.section-pizza-card1, .section-pizza-card2, .section-pizza-card3 {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 30%;
+}
+
+.rateNreview {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+/* Footer kısmı */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-1, .footer-2, .footer-3 {
+    width: 30%;
+}
+
+.footer-adress, .footer-phone, .footer-mail {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.footer-adress img, .footer-phone img, .footer-mail img {
+    margin-right: 10px;
+}
+
+.footer-insta {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.footer-insta img {
+    width: 50px;
+    height: 50px;
 }
 
 @media (max-width: 768px) {
