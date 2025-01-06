@@ -11,31 +11,42 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 400px;
+    height: 700px;
 }
 
-header .home-page img {
-    margin-top: 80px;
+.home-page img {
     width: 200px;
 }
 
 .home-message {
-    font-size: 10px;
-    font-family: 'Satisfy', cursive;
+    font-family: "Satisfy", serif;
     color: #FDC913;
+    padding-top: 20px;
+    font-size: 20px;
 }
 
-.home-page p {
-    margin-top: 40px;
-    font-family: 'Roboto Condensed', serif;
+.home-message2{
+    margin-top: 20px;
     font-size: 50px; /*düzenlenecek*/
     font-weight: 300;
     line-height: 1.2;
 }
 
+.button{
+    margin-top: 20px;
+    background-color: #FDC913;
+    border: none;
+    border-radius:20px;
+    height: 40px;
+    width: 140px;
+    cursor: pointer;
+    color: black;
+}
+
 /* Home section kısmı */
 .home-section {
     padding: 20px;
+    background-color: rgb(252, 252, 244);
 }
 
 .header-nav-button nav ul {
@@ -43,6 +54,9 @@ header .home-page img {
     justify-content: space-around;
     list-style: none;
     padding: 0;
+    margin-left: 25%;
+    max-width: 800px;
+
 }
 
 .header-nav-elements {
@@ -50,22 +64,120 @@ header .home-page img {
 }
 
 .header-nav-elements img {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
 }
 
 .home-section-content {
     display: flex;
-    justify-content: space-around;
+    justify-content: row;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.content-card1{
+    background-image: url('../../images/iteration-2-images/cta/kart-1.png');
+    margin-left: 400px;
+    height: 290px;
+    background-position: center;
+    background-size: cover;
+    width: 25%;
+    color: white;
+}
+
+.content-card1 h4{
     margin-top: 20px;
+    font-size: 40px;
+    font-family: "Quattrocento", serif;
+    display: flex;
+    text-align: flex-start;
+    margin-left: 20px;
+    max-width: 100px;
+}
+
+.content-card1 p {
+    margin-top: 20px;
+    font-size: 15px;
+    font-family: "Barlow", serif;
+    display: flex;
+    text-align: flex-start;
+    margin-left: 20px;
+}
+
+.content-card1 button{
+    margin-top: 20px;
+    display: block;
+    margin-left: 20px;
+    background-color: white;
+    color: #CE2829;
+}
+
+.content-card2{
+    background-image: url('../../images/iteration-2-images/cta/kart-2.png');
+    height: 140px;
+    background-position: center;
+    background-size: cover;
+    width: 350px;
+    color: white;
+    display: flex;
+    text-align: flex-start;
+    flex-direction: column;
+}
+
+.content-card2 h4{
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: "Quattrocento", serif;
+    display: flex;
+    text-align: flex-start;
+    margin-left: 20px;
+    max-width: 140px;
+}
+
+.content-card2 button{
+    margin-top: 20px;
+    margin-left: 20px;
+    background-color: white;
+    color: #CE2829;
+    display: block;
+}
+
+.content-card3{
+    background-image: url('../../images/iteration-2-images/cta/kart-3.png');
+    height: 140px;
+    margin-top: 10px;
+    background-position: center;
+    background-size: cover;
+    width: 350px;
+    color: white;
+    display: flex;
+    text-align: flex-start;
+    flex-direction: column;
+}
+
+.content-card3 h4{
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: "Quattrocento", serif;
+    display: flex;
+    text-align: flex-start;
+    margin-left: 20px;
+    max-width: 140px;
+    color: #333;
+}
+
+.content-card3 button{
+    margin-top:2px;
+    margin-left: 20px;
+    background-color: white;
+    color: #CE2829;
+    display: block;
 }
 
 .content-card1, .content-card2, .content-card3 {
-    background-color: #fff;
-    padding: 20px;
     border-radius: 10px;
     text-align: center;
-    width: 30%;
 }
 
 .home-section-text {
@@ -73,34 +185,53 @@ header .home-page img {
     margin-top: 40px;
 }
 
+.home-section-text p {
+    color: #CE2829;
+    font-family: 'Satisfy', cursive;
+    font-size: 20px;
+}
+
+.home-section-text h4{
+    font-family: "Barlow", serif;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .section-nav-button nav ul {
     display: flex;
     justify-content: space-around;
     list-style: none;
-    padding: 0;
+    margin-left: 25%;
+    max-width: 800px;
 }
 
 .section-nav-elements {
     text-align: center;
+    background-color: white;
 }
 
 .section-nav-elements img {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 }
 
 .section-pizza {
     display: flex;
-    justify-content: space-around;
+    justify-content: row;
     margin-top: 20px;
+    margin-left: 280px;
+}
+
+.section-pizza img {
+    width: 40%;
 }
 
 .section-pizza-card1, .section-pizza-card2, .section-pizza-card3 {
     background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 10px;
+    border-radius: 40px;
     text-align: center;
-    width: 30%;
 }
 
 .rateNreview {
@@ -116,10 +247,20 @@ footer {
     padding: 20px;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .footer-1, .footer-2, .footer-3 {
-    width: 30%;
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+.footer-1 h4, .footer-2 h4, .footer-3 h4 {
+    font-family: 'Londrina Solid', cursive;
+    font-size: 30px;
 }
 
 .footer-adress, .footer-phone, .footer-mail {
@@ -162,5 +303,6 @@ footer {
         margin-top: 20px;
         height: 30px;
         width: 100px;
+        background: #FDC913;
     }
 }

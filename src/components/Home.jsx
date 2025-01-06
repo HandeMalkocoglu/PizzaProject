@@ -28,7 +28,7 @@ export default function Home() {
         <div className="home-page" data-cy="home-page">
           <img src={logo} alt="Logo" />
           <p data-cy="home-message" className="home-message">fırsatı kaçırma</p>
-          <p>
+          <p className="home-message2">
             KOD ACIKTIRIR <br />
             PİZZA, DOYURUR
           </p>
@@ -86,21 +86,29 @@ export default function Home() {
           <div className="content-card1">
             <h4>Özel Lezzetus</h4>
             <p>Position: Absolute Acı Burger</p>
+            <Link to="/order">
             <button data-cy="home-button" className="button">
               SİPARİŞ VER
             </button>
+            </Link>
           </div>
+          <div className="home-section-content2">
           <div className="content-card2">
             <h4>Hackathon Burger Menü</h4>
+            <Link to="/order">
             <button data-cy="home-button" className="button">
               SİPARİŞ VER
             </button>
+            </Link>
           </div>
           <div className="content-card3">
             <h4>Çoooook hızlı npm gibi kurye</h4>
+            <Link to="/order">
             <button data-cy="home-button" className="button">
               SİPARİŞ VER
             </button>
+            </Link>
+          </div>
           </div>
         </div>
         <div className="home-section-text">
@@ -113,7 +121,7 @@ export default function Home() {
               <li>
                 <div className="section-nav-elements">
                   <img src={Icon1} alt="Kore İkonu" className="nav-icon" />
-                  <p>YENİ! Kore</p>
+                  <p>Ramen</p>
                 </div>
               </li>
               <li>
@@ -131,7 +139,7 @@ export default function Home() {
               <li>
                 <div className="section-nav-elements">
                   <img src={Icon4} alt="Kızartmalar İkonu" className="nav-icon" />
-                  <p>Kızartmalar</p>
+                  <p>French fries</p>
                 </div>
               </li>
               <li>
@@ -143,7 +151,7 @@ export default function Home() {
               <li>
                 <div className="section-nav-elements">
                   <img src={Icon6} alt="Gazlı İçecek İkonu" className="nav-icon" />
-                  <p>Gazlı İçecek</p>
+                  <p>Soft Drinks</p>
                 </div>
               </li>
             </ul>
@@ -152,29 +160,29 @@ export default function Home() {
         <div className="section-pizza">
           <div className="section-pizza-card1">
             <img src={Food1} alt="Terminal Pizza" />
-            <p>Terminal Pizza</p>
+            <p><strong>Terminal Pizza</strong></p>
             <div className="rateNreview" data-cy="rateNreview">
               <p data-cy="pizza-rating">4.9</p>
               <p data-cy="pizza-reviews">(200)</p>
-              <p data-cy="pizza-price">60₺</p>
+              <p data-cy="pizza-price"><strong>60₺</strong></p>
             </div>
           </div>
           <div className="section-pizza-card2">
             <img src={Food2} alt="Position Absolute Acı Pizza" />
-            <p>Position Absolute Acı Pizza</p>
+            <p><strong>Position Absolute Acı Pizza</strong></p>
             <div className="rateNreview" data-cy="rateNreview">
               <p data-cy="pizza-rating">4.9</p>
               <p data-cy="pizza-reviews">(200)</p>
-              <p data-cy="pizza-price">60₺</p>
+              <p data-cy="pizza-price"><strong>60₺</strong></p>
             </div>
           </div>
           <div className="section-pizza-card3">
             <img src={Food3} alt="useEffect Tavuklu Burger" />
-            <p>useEffect Tavuklu Burger</p>
+            <p><strong>useEffect Tavuklu Burger</strong></p>
             <div className="rateNreview" data-cy="rateNreview">
               <p data-cy="pizza-rating">4.9</p>
               <p data-cy="pizza-reviews">(200)</p>
-              <p data-cy="pizza-price">60₺</p>
+              <p data-cy="pizza-price"><strong>60₺</strong></p>
             </div>
           </div>
         </div>
