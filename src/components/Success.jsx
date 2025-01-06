@@ -59,7 +59,7 @@ function Success({ orderDetails, onBack }) {
             <div className="footer-mail">
             <img src={icon3} alt="Icon 3" />
             <p>+90 216 123 45 67</p>
-          </div>
+            </div>
         </div>
         <div className="footer-2">
           <h4>Hot Menu</h4>
@@ -71,12 +71,15 @@ function Success({ orderDetails, onBack }) {
           <ul>Position Absolute Acı Burger</ul>
         </div>
         <div className="footer-3">
+        <h4>İnstagram</h4>
+        <div className="footer-insta">
         <img src={li0} alt="li 0" />
         <img src={li1} alt="li 1" />
         <img src={li2} alt="li 2" />
         <img src={li3} alt="li 3" />
         <img src={li4} alt="li 4" />
         <img src={li5} alt="li 5" />
+        </div>
         </div>    
     </footer>
     </div>
